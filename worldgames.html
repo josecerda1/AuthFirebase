@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+    <head>
+        <!--https://firebase.google.com/docs/auth/web/manage-users#send_a_user_a_verification_email-->
+        <!--https://firebase.google.com/docs/auth/web/start?hl=es-419-->
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>WORLDGAMES</title>
+        <!--Librerias boostrap css-->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        
+        <link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/css/bootstrap4-toggle.min.css" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/css/bootstrap4-toggle.min.css" rel="stylesheet">
+        
+    </head>
+    
+    <!--Para ingresar usar josecerda_jc@hotmail.com password: 12345678-->
+
+    <body style="background: #000000;">
+        
+        <div class="row d-flex " style="background: #000000; height:100px; margin-top: 1cm;">
+                    <div class="col-4 d-flex justify-content-center">
+                        <h1 style="color: snow;">WORLDGAMES</h1>
+                    </div>
+
+                <div class="row text-align col-5">
+                    
+                    <div id="registrado" >
+
+                        
+                        <div class="form-inline">
+                            
+                            
+                            <!--Sign up -->
+                            <div class="row" id="areaSignUp">
+                                <div style="padding: 10px;">
+                                        <span id="" style="color: snow;" >Registrate</span>
+                                    </div>
+                                    
+                                    <input type="email" id="email" style="padding: 5px;" placeholder="coloca aqui tu email">
+                                    <input type="password" id="password" placeholder="coloca aqui tu password">
+                                    <button  onclick="send()" class="btn-warning"> send</button>
+                                </div>
+                                
+                                
+                                <!--Login-->
+                                <div class="row" id="areaLogin" style="display: none;">
+                                        <input type="email" id="emailA" placeholder="coloca tu email">
+                                        <input type="password" id="passwordA" placeholder="coloca aqui tu password">
+                                        <button onclick="acces()" class="btn-warning"> login</button>
+                                        <span style="color: snow; padding:10px;">Inicia session</span>
+                                    </div>
+                                    
+                                </div>
+                                
+                    </div>
+                        
+                </div>
+
+                    <div class="col-3 justify-content-center" style="background: #000000;">
+                            
+                            <input type="checkbox" data-toggle="toggle" data-on="Registrarse" data-off="Loguearse" id="loginRegistro">
+                        
+                        <h1 id="login" style="color: snow; font-family: monospace; font-size:20px; text-align:center ;"></h1>
+                        
+                    </div>
+                   
+                    </div>
+                    
+            
+                    
+                    
+      <!--Librerias de boostrap-->
+        <!--https://getbootstrap.com/docs/4.3/getting-started/introduction/-->
+        <!--
+        TOGGLE
+            https://gitbrent.github.io/bootstrap4-toggle/
+        -->
+        <script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js"></script>
+    
+    
+        <!--sCRIPT DE TOGGLE-->
+        <script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js"></script>
+    
+        <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-app.js"></script>
+
+        <!--iMPORTAMOS LIBRERIA DE AUTHENTICACION-->
+        <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-auth.js"></script>
+    
+        <!--Scripts de JS DE BOOSTRAP-->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
+
+    
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+        //https://firebase.google.com/docs/web/setup#available-libraries -->
+        
+        <script>
+            
+
+            var firebaseConfig = {
+                apiKey: "AIzaSyBB8fJk_MTK-Tt1rzDLdbmGjizd56eWb6g",
+                authDomain: "fir-cfc1d.firebaseapp.com",
+                databaseURL: "https://fir-cfc1d.firebaseio.com",
+                projectId: "fir-cfc1d",
+                storageBucket: "fir-cfc1d.appspot.com",
+                messagingSenderId: "617547604995",
+                appId: "1:617547604995:web:ff2619e5d3b262d8429a36"
+            };
+            //Initialize Firebase
+            firebase.initializeApp(firebaseConfig);
+            
+            //Funcion auth y method para conocer el estado de usuario
+            //si retorna user quiere decir que esta registrado
+            
+            
+            //OBSERVADOR
+            firebase.auth().onAuthStateChanged(function (user) {
+                if (user) {
+                    var displayName = user.displayName;
+                    var email = user.email;
+                    var emailVerified = user.emailVerified;
+                    var photoURL = user.photoURL;
+                    var isAnonymous = user.isAnonymous;
+                    var uid = user.uid;
+                    var textoVerificado = "";
+                    if (emailVerified === false) {
+                        textoVerificado = "Tienes que verificar tu mail para seguir"
+                    } else {
+                        textoVerificado = "Bienvenido"
+                    }
+                    var providerData = user.providerData;
+                    document.getElementById('login').innerHTML =
+                    `<p class="d-flex justify-content-center">`  +textoVerificado +" "+ user.email +`
+                     </p>
+                    <button onclick="finishSession()"> Cerrar session</button>  
+                    `;
+                    document.getElementById('registrado').style.display='none'
+                    document.getElementById('loginRegistro').style.display='none'
+                    //console.log(user); user.email
+                } else {
+                    document.getElementById('login').innerHTML = "¿Ya tienes cuenta?"
+                    document.getElementById('registrado').style.display='block'
+                    
+                    document.getElementById('loginRegistro').style.display='block'
+                    
+                }
+            });
+            
+            
+            
+            function send() {
+                var email = document.getElementById('email').value;
+                var password = document.getElementById('password').value;
+                
+                firebase.auth().createUserWithEmailAndPassword(email, password)
+                .catch(function (error) {
+                    
+                    var errorCode = error.code;
+                    var errorMessage = error.message;
+                    alert(errorMessage);
+                })
+                .then(function () {
+                    verificar()
+                    
+                });
+                
+            }
+            
+            
+        function acces() {
+
+            var emailA = document.getElementById('emailA').value;
+            var passwordA = document.getElementById('passwordA').value;
+            firebase.auth().signInWithEmailAndPassword(emailA, passwordA)
+                .catch(function (error) {
+
+                    var errorCode = error.code;
+                    var errorMessage = error.message;
+                    alert(errorMessage);
+                });
+        }
+
+        function finishSession() {
+            firebase.auth().signOut()
+                .then(function () {
+                    console.log('salir')
+                })
+                .catch(function (error) {
+                    console.log(error);
+                })
+        }
+
+        function verificar() {
+            var user = firebase.auth().currentUser;
+
+            user.sendEmailVerification().then(function () {
+
+            }).catch(function (error) {
+
+            });
+        }
+
+        $(document).ready(function(){
+            $('#loginRegistro').change(function(){
+                if($(this).is(':checked')){
+                    $('#areaLogin').show();
+                    $('#areaSignUp').hide();
+                }
+                else{
+                    $('#areaLogin').hide();
+                    $('#areaSignUp').show();
+                }
+            })
+        })
+    </script>
+</body>
+
+</html>
