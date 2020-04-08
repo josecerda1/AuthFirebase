@@ -15,99 +15,199 @@
         <link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/css/bootstrap4-toggle.min.css" rel="stylesheet">
         <link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/css/bootstrap4-toggle.min.css" rel="stylesheet">
         
+        <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+        
     </head>
     
     <!--Para ingresar usar josecerda_jc@hotmail.com password: 12345678-->
-
+    
     <body style="background: #000000;">
-        
-        <div class="row d-flex " style="background: #000000; height:100px; margin-top: 1cm;">
+            
+            <div class="row d-flex " style="background: #000000; height:100px; margin-top: 1cm;">
+                    
                     <div class="col-4 d-flex justify-content-center">
                         <h1 style="color: snow;">WORLDGAMES</h1>
                     </div>
-
-                <div class="row text-align col-5">
                     
-                    <div id="registrado" >
-
-                        
-                        <div class="form-inline">
-                            
-                            
-                            <!--Sign up -->
-                            <div class="row" id="areaSignUp">
-                                <div style="padding: 10px;">
-                                        <span id="" style="color: snow;" >Registrate</span>
-                                    </div>
-                                    
-                                    <input type="email" id="email" style="padding: 5px;" placeholder="coloca aqui tu email">
-                                    <input type="password" id="password" placeholder="coloca aqui tu password">
-                                    <button  onclick="send()" class="btn-warning"> send</button>
-                                </div>
-                                
-                                
+                    <div class="row text-align col-4">
+                        <div id="registrado">
+                            <div class="form-inline">
+                                <!--Sign up -->
+                                <div class="row" id="areaSignUp">
+                                    <!--AREA REGISTRO    -->    
+                                    <input type="email" id="email" style="margin: 5px;" placeholder="coloca aqui tu email">
+                                    <input type="password" id="password" style="margin: 5px;" placeholder="coloca aqui tu password">
+                                    <button  onclick="send()" class="btn btn-warning" style="margin:5px ;">send</button>
+                                </div>    
                                 <!--Login-->
                                 <div class="row" id="areaLogin" style="display: none;">
-                                        <input type="email" id="emailA" placeholder="coloca tu email">
-                                        <input type="password" id="passwordA" placeholder="coloca aqui tu password">
-                                        <button onclick="acces()" class="btn-warning"> login</button>
-                                        <span style="color: snow; padding:10px;">Inicia session</span>
-                                    </div>
-                                    
+                                    <!--AREA INGRESO     -->
+                                    <input type="email" id="emailA" style="margin: 5px;" placeholder="coloca tu email">
+                                    <input type="password" id="passwordA" style="margin: 5px;" placeholder="coloca aqui tu password">
+                                    <button onclick="acces()" class="btn btn-success" style="margin: 5px;">login</button>
                                 </div>
-                                
+                            </div>                        
+                        </div>
                     </div>
+                    
+                    
+                    <div class="col-3">
+                        <h3 id="login" style="color: snow; font-family: monospace; text-align:center ;"></h3>                
+                    </div>
+                    <div class="col-1" style="background-color: beige;" id="log-check">
+                        <input type="checkbox" data-toggle="toggle" data-on="Login" data-off="Checkin" id="loginRegistro">
+                    </div>
+                                
+            </div>
+                            
+            <div class="container" id="games" style="margin-top: 30px;">
+                                    
+                <div class="inicio">
+
+                    <div style="color: rgb(255, 255, 255);">
                         
+                        <p id="p1">
+                            Bienvenido a <strong>WORLDGAMES</strong>. Yo soy el <strong>Bloque de Texto Principal</strong>. Si. Así me llamo.</br>
+                            Te acompañaré en tus primeros juegos. No te preocupes que te orientaremos con los elementos del DOM.</br>
+                            Este es un único documento HTML (puede ser interpretado por un navegador).
+                            incorpora: Javascript, CSS, BOOSTRAP y jQuery.
+                            Presentaremos distintas actividades para que conozcas algunas
+                            funcionalidades (también llamados métodos) de jQuery.</br>
+                            ¡Vamos a comenzar con los juegos!</br>
+                            (Al final de cada inciso existirá un "checkbox" para que puedas indicar la realización de cada uno)</br></br>
+                        </p>
+                        
+                        <p>
+                            <strong>Game 1:</strong></br>
+                            A continuación encontrará unos botones. Al pasar el cursor del mouse por encima de estos,
+                            cambiará el color del bloque de texto principal,
+                            el cual tomará el color que tenga el botón en cuestión.</br><input type="checkbox">
+                        </p>
+                        
+                        <p>
+                            <strong>Game 2:</strong></br>    
+                            Al hacer click en algun botón cambiará el color de otro elemento del DOM.
+                            A ver si descubre cual es...</br><input type="checkbox">
+                        </p>
+
+                        <div class="row">
+                            
+                            <button class="btn btn-danger" id="button1" style="margin: 20px;">Red</button>
+                            <button class="btn btn-warning" id="button2" style="margin: 20px;">Yellow</button>
+                            <button class="btn btn-success" id="button3" style="margin: 20px;">Green</button>
+                            <button class="btn btn-info" id="button4" style="margin: 20px;">Lightblue</button>
+                            <button class="btn btn" id="button5" style="margin: 20px; color: azure; background-origin: padding-box; ">Magic</button>
+                        
+                        </div>
+                            
+                        <div>
+
+                            <p>
+                                <strong>Game 3:</strong></br>
+                                El boton "Magic"... ¿Hace desaparecer el bloque de texto? A ver si puede descubrirlo.</br><input type="checkbox">
+                            </p>
+                            
+                            <p id="p2">
+                                <strong>Game 4:</strong></br>
+                                Y... ¿Como hacemos para que el bloque de texto principal vuelva a ser blanco,
+                                teniendo libertad sobre el movimiento del cursor? Como al inicio de la aplicación. (Pulse "F5" en su teclado
+                                para corroborarlo)
+                            </p>
+                            
+                            <input type="checkbox">
+                            
+                        </div>
+                            
+                    </div>
+                
+                </div>
+                <div id="continueFalse" style="color:red;">
+                </br>
+                </br>
+                    <h3>Cuando finalize los cuatro juegos se habilitara el resto del DOM.</h3>
                 </div>
 
-                    <div class="col-3 justify-content-center" style="background: #000000;">
-                            
-                            <input type="checkbox" data-toggle="toggle" data-on="Registrarse" data-off="Loguearse" id="loginRegistro">
-                        
-                        <h1 id="login" style="color: snow; font-family: monospace; font-size:20px; text-align:center ;"></h1>
-                        
-                    </div>
-                   
-                    </div>
-                    
-            
-                    
-                    
-      <!--Librerias de boostrap-->
-        <!--https://getbootstrap.com/docs/4.3/getting-started/introduction/-->
-        <!--
-        TOGGLE
-            https://gitbrent.github.io/bootstrap4-toggle/
-        -->
-        <script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js"></script>
-    
-    
-        <!--sCRIPT DE TOGGLE-->
-        <script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js"></script>
-    
-        <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-app.js"></script>
+                <div id="continueTrue" style="display: none; color: greenyellow;">
+                </br>
+                </br>
+                    <h3>¡Excelente!</h3>
+                </br>
+                    <p>
+                        Estos eventos (como el "click" y el pasar el cursor por encima de algun elemento del DOM) pueden ser detectados por los navegadores.
+                    </br>
+                        ¡Y ya ves que no solo sobre botones!
+                    </br>
+                        Un párrafo o prácticamente cualquier elemento del DOM puede también detectar un "click" o al cursor en si.
+                        Los programadores, Javascript, y jQuery lo llamamos a eso un <strong>evento</strong>.
+                    </br></br>
+                        Todos los elementos que encuentres en esta página (a lo largo y ancho de la pantalla) forman parte del <strong>DOM</strong>.</br></br>
+                        Para que lo entiendas de momento: con <strong>HTML</strong> se arma el esqueleto.</br></br>
+                        Los colores aparecen gracias a <strong>CSS</strong>.</br> </br>
+                        La fachada de los botones y algunas (sino la mayoría) de las posibilidades en la organización (estructura) de la página es gracias a <strong>BOOSTRAP</strong>.</br></br>
+                        Como dijimos antes, el encargado de las funciones es jQuery, y tambien Javascript.</br></br>
+                        Dejemos un ratito lo tecnico... ¡Y continuemos con los juegos!
 
-        <!--iMPORTAMOS LIBRERIA DE AUTHENTICACION-->
-        <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-auth.js"></script>
-    
-        <!--Scripts de JS DE BOOSTRAP-->
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+                    </p>
+
+                </div>
+
+                <div id="game2" style="display: none; color: azure;">
+                    <p>
+                        Hola! :D </br> 
+                        Soy <strong>Segundo Bloque de Texto</strong>. Si, tenemos nombres raros. Pero yo no doy tanto dolor de cabeza</br>
+                        Si llegaste hasta acá seguro ya habrás aprendido algo acerca de la composición de una página.</br>
+                        ¡Tengo un par de cosas nuevas para contarte!</br>
+                        Pero primero quiero saber si me sigues... ¿Estás ahi?
+                    </p>
+                    
+                        <strong>Game 3:</strong></br>
+                        <p id="sayHello">Di "¡Hola!" a Segundo haciendo click aqui</p>
+                        <span id="hello" style="color: greenyellow; display: none;" >¡Hola!</span>
+                        <span id="caritaD" style="color: greenyellow; display: none;" >:D</span>
+                        
+                        <input type="checkbox">
+                        
+                    
+                </div>
+
+            </div>
+
+            <!--Librerias de boostrap-->
+            <!--https://getbootstrap.com/docs/4.3/getting-started/introduction/-->
+            <!--
+                TOGGLE
+                https://gitbrent.github.io/bootstrap4-toggle/
+            -->
+            <script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js"></script>
+                                    
+                                    
+            <!--sCRIPT DE TOGGLE-->
+            <script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js"></script>
+            
+            <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-app.js"></script>
+            
+            <!--iMPORTAMOS LIBRERIA DE AUTHENTICACION-->
+            <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-auth.js"></script>
+            
+            <!--Scripts de JS DE BOOSTRAP-->
+            <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
             integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
             crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
             integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
             crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
             integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
             crossorigin="anonymous"></script>
-
-    
-    <!-- TODO: Add SDKs for Firebase products that you want to use
-        //https://firebase.google.com/docs/web/setup#available-libraries -->
-        
-        <script>
             
-
+            <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+            
+            <!-- TODO: Add SDKs for Firebase products that you want to use
+                //https://firebase.google.com/docs/web/setup#available-libraries -->
+                
+            <script>
+            
             var firebaseConfig = {
                 apiKey: "AIzaSyBB8fJk_MTK-Tt1rzDLdbmGjizd56eWb6g",
                 authDomain: "fir-cfc1d.firebaseapp.com",
@@ -119,14 +219,14 @@
             };
             //Initialize Firebase
             firebase.initializeApp(firebaseConfig);
-            
+                                            
             //Funcion auth y method para conocer el estado de usuario
             //si retorna user quiere decir que esta registrado
-            
-            
+
             //OBSERVADOR
             firebase.auth().onAuthStateChanged(function (user) {
                 if (user) {
+
                     var displayName = user.displayName;
                     var email = user.email;
                     var emailVerified = user.emailVerified;
@@ -134,36 +234,53 @@
                     var isAnonymous = user.isAnonymous;
                     var uid = user.uid;
                     var textoVerificado = "";
+
                     if (emailVerified === false) {
                         textoVerificado = "Tienes que verificar tu mail para seguir"
+                        
                     } else {
                         textoVerificado = "Bienvenido"
+                        document.getElementById('games').style.display='block'
+                        
                     }
+
                     var providerData = user.providerData;
+                    
                     document.getElementById('login').innerHTML =
-                    `<p class="d-flex justify-content-center">`  +textoVerificado +" "+ user.email +`
-                     </p>
-                    <button onclick="finishSession()"> Cerrar session</button>  
-                    `;
+                    `
+                    <p class="d-flex justify-content-center">
+                    `
+                    +textoVerificado +" "+ user.email +
+                    `
+                    </p>
+                    <button class='btn btn-danger' onclick="finishSession()">Cerrar session</button>  
+                    `
+                    ;
+                    document.getElementById('log-check').style.display='none'
+
                     document.getElementById('registrado').style.display='none'
-                    document.getElementById('loginRegistro').style.display='none'
                     //console.log(user); user.email
+
                 } else {
                     document.getElementById('login').innerHTML = "¿Ya tienes cuenta?"
-                    document.getElementById('registrado').style.display='block'
                     
-                    document.getElementById('loginRegistro').style.display='block'
+                    document.getElementById('registrado').style.display='block'
+                    document.getElementById('log-check').style.display='block'
+                    
+                    document.getElementById('games').style.display='none'
                     
                 }
             });
             
-            
-            
-            function send() {
-                var email = document.getElementById('email').value;
-                var password = document.getElementById('password').value;
-                
-                firebase.auth().createUserWithEmailAndPassword(email, password)
+        //FUNCTIONS
+
+        //Function send: 
+        function send() {
+            //Take parameters 'email' and 'password' with method .getElementById
+            var email = document.getElementById('email').value;
+            var password = document.getElementById('password').value;
+            //
+            firebase.auth().createUserWithEmailAndPassword(email, password)
                 .catch(function (error) {
                     
                     var errorCode = error.code;
@@ -172,16 +289,15 @@
                 })
                 .then(function () {
                     verificar()
-                    
                 });
-                
-            }
+        }
             
             
         function acces() {
-
+            //Take parameters 'emailA' and 'passwordA' with method .getElementById (A for Acces)
             var emailA = document.getElementById('emailA').value;
             var passwordA = document.getElementById('passwordA').value;
+            //Send parameters to method signInWithEmailAndPassword, encadenando methods
             firebase.auth().signInWithEmailAndPassword(emailA, passwordA)
                 .catch(function (error) {
 
@@ -192,6 +308,7 @@
         }
 
         function finishSession() {
+            //Finish session
             firebase.auth().signOut()
                 .then(function () {
                     console.log('salir')
@@ -201,13 +318,15 @@
                 })
         }
 
+
         function verificar() {
+            
             var user = firebase.auth().currentUser;
-
+            
             user.sendEmailVerification().then(function () {
-
-            }).catch(function (error) {
-
+            })
+            .catch(function (error) {
+                console.log(error);
             });
         }
 
@@ -223,7 +342,85 @@
                 }
             })
         })
+
+        const $p = $('#p1');
+        const $p1 = $('#p2');
+        const $h1 = $('h1');
+       
+        
+        $('#button1')
+        .on('mouseenter', function(){
+            $p.css('color' , 'red' );
+        })
+        .on('click' , function(){
+            $h1.css('color' , 'red');
+        })
+
+        $('#button2')
+        .on('mouseenter', function(){
+            $p.css('color' , 'yellow' );
+        })
+        .on('click' , function(){
+            $h1.css('color' , 'yellow');
+        })
+
+        $('#button3')
+        .on('mouseenter', function(){
+            $p.css('color' , 'green' );
+        })
+        .on('click', function(){
+            $h1.css('color', 'green');
+        })
+
+        $('#button4')
+        .on('mouseenter', function(){
+            $p.css('color' , 'aqua' );
+        })
+        .on('click', function(){
+            $h1.css('color', 'aqua')
+        })
+
+        $('#button5')
+        .on('mouseenter', function(){
+            $p.css('color' , 'white' );
+        })
+        .on('mouseleave', function(){
+            $p.css('color' , 'initial' );
+        })
+        .on('click', function(){
+            $h1.css('color' , 'white' );
+        })
+
+        $('#p2')
+        .on('click' , function(){
+            $p.css('color','white');
+        })
+
+        $('#p2')
+        .on('click' , function(){
+            $('#continueTrue').show();
+            $('#continueFalse').hide();
+            $('#game2').show();
+        })
+
+        $('#sayHello')
+        .on('click', function(){
+            //console.log('HOLA');
+            $('#hello').show();
+        })
+
+        $('#hello')
+        .on('mouseenter', function(){
+            $('#caritaD').show();
+        })
+        .on('mouseleave', function(){
+            $('#caritaD').hide();
+        })
+
+
+
     </script>
+
 </body>
 
 </html>
